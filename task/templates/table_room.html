@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="theme">Оформление каюты</h2>
+    <table>
+        <tr>
+            <td>Цвет стен</td>
+            <td>Эмблема</td>
+        </tr>
+        <tr>
+            {% if gender == 'female' %}
+                {% if age %}
+                    <th bgcolor="FFA07A"></th>
+                {% else %}
+                    <th bgcolor="FF4500"></th>
+                {% endif %}
+            {% elif gender == 'male' %}
+                {% if age %}
+                    <th bgcolor="B0C4DE"></th>
+                {% else %}
+                    <th bgcolor="007FF0"></th>
+                {% endif %}
+            {% endif %}
+            {% if age %}
+                <th class="center-img"><img src="{{ url_for('static', filename='img/miniMARS.tiff') }}"></th>
+            {% else %}
+                <th class="center-img"><img src="{{ url_for('static', filename='img/bigiMARS.tiff') }}"></th>
+            {% endif %}
+        </tr>
+    </table>
+{% endblock %}

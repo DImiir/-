@@ -62,6 +62,15 @@ def distribution():
     return render_template('distribution.html', people=members)
 
 
+@app.route('/table/<gender>/<age>')
+def room_table(gender, age):
+    if int(age) < 21:
+        ok = True
+    else:
+        ok = False
+    return render_template('table_room.html', gender=gender, age=ok)
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
 

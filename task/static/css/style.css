@@ -2,3 +2,25 @@ h4 {
     padding-left: 20px;
     color: #aaaaff
 }
+
+table {
+    width: 100%;
+}
+
+td {
+    background: #eeeeee;
+    height: 50px;
+    text-align: center;
+}
+
+.theme {
+    text-align: center
+}
+
+img {
+    width: 50%;
+}
+
+.center-img {
+    text-align: center;
+}
