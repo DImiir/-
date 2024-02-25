@@ -24,3 +24,12 @@ img {
 .center-img {
     text-align: center;
 }
+
+.galery-block {
+    text-align: center;
+    width: 75%;
+}
+
+.div-block {
+    text-align: left;
+}

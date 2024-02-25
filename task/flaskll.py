@@ -1,6 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired
 
 
@@ -14,6 +14,8 @@ class LoginForm(FlaskForm):
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+
+list_num = [1, 2, 3]
 
 
 @app.route('/index/<title>')
@@ -69,6 +71,21 @@ def room_table(gender, age):
     else:
         ok = False
     return render_template('table_room.html', gender=gender, age=ok)
+
+
+@app.route('/galery', methods=['POST', 'GET'])
+def slider():
+    global list_num
+    if request.method == 'GET':
+        return render_template('galery.html', first_pic=f'img/mars{list_num[-1]}.jpg',
+                               second_pic=f'img/mars{list_num[-2]}.jpg',
+                               third_pic=f'img/mars{list_num[-3]}.jpg')
+    elif request.method == 'POST':
+        list_num.append(list_num[-1] + 1)
+        request.files['file'].save(f'static/img/mars{list_num[-1]}.jpg')
+        return render_template('galery.html', first_pic=f'img/mars{list_num[-1]}.jpg',
+                               second_pic=f'img/mars{list_num[-2]}.jpg',
+                               third_pic=f'img/mars{list_num[-3]}.jpg')
 
 
 if __name__ == '__main__':

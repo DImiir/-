@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <title>Пейзажи Марса</title>
+    <div class="galery-block">
+        <h1>Пейзажи Марса</h1>
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ url_for('static', filename=first_pic) }}" class="d-block w-100" alt="first">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename=second_pic) }}" class="d-block w-100" alt="second">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url_for('static', filename=third_pic) }}" class="d-block w-100" alt="third">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="div-block">
+            <h1>Добавить картинку</h1>
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="photo">Выберите файл</label>
+                    <input type="file" class="form-control-file" id="photo" name="file">
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
