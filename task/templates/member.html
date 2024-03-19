@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ json['name'] }} {{ json['surname'] }}</h1>
+    <img src="{{ json['photo'] }}">
+    <h3>{{ json['specialities']|sort|join(', ') }}</h3>
+{% endblock %}

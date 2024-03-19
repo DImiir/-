@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired
+import json
 
 
 class LoginForm(FlaskForm):
@@ -86,6 +87,13 @@ def slider():
         return render_template('galery.html', first_pic=f'img/mars{list_num[-1]}.jpg',
                                second_pic=f'img/mars{list_num[-2]}.jpg',
                                third_pic=f'img/mars{list_num[-3]}.jpg')
+
+
+@app.route('/member')
+def member():
+    with open('templates/josn.json') as file:
+        json = file.read()
+    return render_template('member.html', json=json)
 
 
 if __name__ == '__main__':
