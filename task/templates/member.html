@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ json['name'] }} {{ json['surname'] }}</h1>
-    <img src="{{ json['photo'] }}">
-    <h3>{{ json['specialities']|sort|join(', ') }}</h3>
+    {% set js = json|random %}
+    {% set sp = js['specialities']|sort %}
+    <h1>{{ js["name"] }} {{ js['surname'] }}</h1>
+    <img src="{{ js['photo'] }}">
+    <h3>{{ sp|join(', ') }}</h3>
 {% endblock %}

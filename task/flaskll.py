@@ -92,8 +92,8 @@ def slider():
 @app.route('/member')
 def member():
     with open('templates/josn.json') as file:
-        json = file.read()
-    return render_template('member.html', json=json)
+        jsn = json.load(file)
+    return render_template('member.html', json=jsn)
 
 
 if __name__ == '__main__':
